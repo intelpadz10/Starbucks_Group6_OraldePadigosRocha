@@ -1,12 +1,13 @@
 <?php
 
 require_once 'init.php';
+require_once 'Session.php';
 
 use Sessions\Session;
 Session::start();
 
 //Session::remove('orderList');
-
+    
 $customerName = $_SESSION['customerName'];
 
 $CustomerOrderList = new OrderList();
@@ -29,21 +30,23 @@ if ($_REQUEST) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="cssFiles\selection.css">
+    <link rel="stylesheet" href="selection.css">
 
-    <link rel="icon" href="assets/starbucks_logo.png" />
+    <link rel="icon" href="assets/logo.png" />
 
-    <title>Starbucks.com</title>
+    <title>Starbucks Philippines</title>
     <script src="axios.js" type="text/javascript"></script>
 </head>
 <body>
 
     <div class = "siteheader">
 
-    <img src="assets/starbucks_logo.png" alt="Starbucks Logo">
+    <br>
 
-    <?php echo "<h1 style='font-size:30px; color: #01643D; font-weight: 650; align-items: center;
-         background-color: white; padding-left: 1.5em;'>Hi, $customerName. What would you like to have today?</h1>"; ?>
+    <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
+    <h3>Starbucks Philippines</h3> <br>
+
+    <?php echo"<h1>Hi, $customerName. What would you like to have today?</h1>";?>
 
     </div>
 
