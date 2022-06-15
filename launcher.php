@@ -39,9 +39,10 @@ use Sessions\Session;
             <form action =
             <?php echo $_SERVER['PHP_SELF']; ?> 
             method = "post" id="inputName">
-            <input type="text" name="customerName" id="name"><br>
             <label style="font-size:9px">Enter your name</label><br><br>
                 
+            <input type="text" name="customerName" id="name"><br><br>
+            
             <?php if ($_REQUEST) {
                 if (isset($_REQUEST['submit'])) {
                     if (

@@ -15,31 +15,6 @@
 //         return $_SESSION[$key] = $value;
 //     }
 
-<<<<<<< Updated upstream
-    public static function get($key,$indexList=null){
-        $numberOfArguments = func_num_args();
-        if($numberOfArguments > 1){
-            // echo "I'm here";
-            if(is_array($indexList)){    //check if it is an array
-
-                $current = $_SESSION[$key]; //identify the starting point
-
-                foreach($indexList as $indexKey){
-                      $current = $current[$indexKey];  
-                }
-
-                return $current;
-
-            } elseif (is_string($indexList) or is_numeric($indexList)){
-
-                  return $_SESSION[$key][$indexList];
-            } 
-        } elseif($numberOfArguments <= 1){
-            // echo "This is processed";
-            return $_SESSION[$key];   
-        }           
-    }
-=======
 //     public static function get($key,$indexList=null){
 //         $numberOfArguments = func_num_args();
 //         if($numberOfArguments > 1){
@@ -56,7 +31,6 @@
 //             return $_SESSION[$key];   
 //         }           
 //     }
->>>>>>> Stashed changes
 
 //     public static function remove($key){
 //             unset($_SESSION[$key]);
@@ -70,8 +44,6 @@
 //             return false;
 //     }
 
-<<<<<<< Updated upstream
-=======
 //     public static function removeFirstElement($key){
 //         $i=0;
 //         for($i; $i < (count($_SESSION[$key]) - 1); $i++){
@@ -89,5 +61,4 @@
 //         }
 //         unset($_SESSION[$key][$i]);
 //     }
->>>>>>> Stashed changes
 }
