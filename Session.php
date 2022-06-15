@@ -18,23 +18,16 @@ class Session {
     public static function get($key,$indexList=null){
         $numberOfArguments = func_num_args();
         if($numberOfArguments > 1){
-            // echo "I'm here";
-            if(is_array($indexList)){    //check if it is an array
-
-                $current = $_SESSION[$key]; //identify the starting point
-
+            if(is_array($indexList)){  
+                $current = $_SESSION[$key];
                 foreach($indexList as $indexKey){
                       $current = $current[$indexKey];  
                 }
-
                 return $current;
-
             } elseif (is_string($indexList) or is_numeric($indexList)){
-
                   return $_SESSION[$key][$indexList];
             } 
         } elseif($numberOfArguments <= 1){
-            // echo "This is processed";
             return $_SESSION[$key];   
         }           
     }
@@ -51,4 +44,21 @@ class Session {
             return false;
     }
 
+    public static function removeFirstElement($key){
+        $i=0;
+        for($i; $i < (count($_SESSION[$key]) - 1); $i++){
+            $_SESSION[$key][$i] = $_SESSION[$key][$i+1];
+        }
+        unset($_SESSION[$key][$i]);
+    }
+
+    public static function removeSpecificElement($key, $position){
+        $i=0;
+        for($i; $i < (count($_SESSION[$key]) - 1); $i++){
+            if($i >= $position){
+                $_SESSION[$key][$i] = $_SESSION[$key][$i+1];
+            }
+        }
+        unset($_SESSION[$key][$i]);
+    }
 }
