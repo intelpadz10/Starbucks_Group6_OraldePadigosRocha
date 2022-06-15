@@ -2,10 +2,10 @@
 
 require_once "init.php";
 use Sessions\Session;
-Session::start();
+//Session::start();
 
-Session::remove('orderList');
-Session::remove('customerName');
+//Session::remove('orderList');
+//Session::remove('customerName');
 ?>
 
 <!DOCTYPE html>
