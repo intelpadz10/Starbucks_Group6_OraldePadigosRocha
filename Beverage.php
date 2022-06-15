@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 class Beverage extends Consumable implements InterfaceBeverage{
-    private $beverageChoice;
-    private $beverageCupSize;
+    public $beverageMenu;
+    public $beverageCupSize;
 
-    public function _construct(string $menuName,float $itemPrice,string $menuType,int $menuChoice){
-        $this->MenuName=$menuName;
-        $this->itemPrice=$itemPrice;
-        $this->beverageChoice=$menuType;
-        $this->beverageCupSize=$choice;
+    public function _construct(string $MenuName,float $ItemPrice,string $menu,int $sizeChoice){
+        $this->menuName=$MenuName;
+        $this->itemPrice=$ItemPrice;
+        $this->beverageMenu=$menu;
+        $this->beverageCupSize=$sizeChoice;
     }
 
     public function getCupSize(): string{
@@ -29,25 +29,21 @@ class Beverage extends Consumable implements InterfaceBeverage{
         }else if($this -> beverageCupSize == 6){
             $sizeName = "Trenta (31 oz.)";
         }
-        
-        switch($this->Bsize){
-            case 1:
-                $option="Large";break;
-            case 2:
-                $option="Medium";break;
-            case 3:
-                $option="Small";break;
-        }
+
+        return $sizeName;
     }
-    public function setSize(string $size){
-        $this->Bsize=$size;
+
+    public function setCupSize(string $BeverageCupSize){
+        $this->beverageCupSize=$BeverageCupSize;
         return $this;
     }
-    public function getType():string{
-        return $this->Btype;
+
+    public function getMenu():string{
+        return $this->beverageMenu;
     }
-    public function setType(string $type){
-     $this->Btype=$type;
+
+    public function setMenu(string $menu){
+     $this->beverageMenu=$menu;
      return $this;
     }
 

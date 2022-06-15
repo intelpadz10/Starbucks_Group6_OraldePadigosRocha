@@ -1,11 +1,8 @@
 <?php
 
 interface iFood{
-    public function getType(string $type);
-    public function setType(): string;
-    public function setPortion(int $inputPortion);
-    public function getPortion():string;
-   
-
-
+    public function getMenu(string $menu);
+    public function setMenu(): string;
+    public function setFoodSlice(int $slice);
+    public function getFoodSlice():string;
 }

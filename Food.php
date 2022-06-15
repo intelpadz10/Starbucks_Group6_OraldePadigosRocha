@@ -3,46 +3,43 @@
 declare(strict_types=1);
 
 class Food extends Consumable implements iFood{
+    public $foodMenu;
+    public $foodSlice;
 
-    private $Fportion;
-    private $Ftype;
-
-    public function _construct(string $FoodName,float $Fprice,string $Ftype,int $sizePortion){
-        $this->Cname=$FoodName;
-        $this->Cprice=$Fprice;
-        $this->Ftype=$Ftype;
-        $this->Fsize=$sizePortion;
-
+    public function _construct(string $MenuName,float $ItemPrice,string $Ftype,int $sizePortion){
+        $this->menuName=$MenuName;
+        $this->itemPrice=$ItemPrice;
+        $this->foodMenu=$menu;
+        $this->foodSlice=$sliceChoice;
     }
 
-    public function getSize():string{
-        $portion="";
-        switch($this->Bsize){
-            case 1:
-                $portion="1 portion";break;
-            case 2:
-                $portion="2 portion";break;
-            case 3:
-                $portion="3 portion";break;
-            case 4:
-                $portion="4 portion";break;
-            case 5:
-                 $portion="Whole";break;
+    public function getFoodSlice():string{
+        $foodSlice = "";
+
+        if($this -> beverageCupSize == 1){
+            $foodSlice = "1 Slice";
+        }else if($this -> beverageCupSize == 2){
+            $foodSlice = "2 Slices";
+        }else if($this -> beverageCupSize == 3){
+            $foodSlice = "3 Slices";
+        }else if($this -> beverageCupSize == 4){
+            $foodSlice = "4 Slices";
+        }else if($this -> beverageCupSize == 5){
+            $foodSlice = "1 Whole";
         }
-        return $portion;
+        return $foodSlice;
     }
 
-    public function setSize(){
-        $this->Fsize=$sizePortion;
-        return $this;
-
+    public function setFoodSlice(){
+        $this->foodSlice=$slice;
+        return $this; 
     }
 
-    public function getType(): string{
-        return $this->Ftype;
+    public function getMenu(): string{
+        return $this->foodMenu;
     }
-    public function setType(string $type){
-        $this->Ftype=$type;
+    public function setMenu(string $menu){
+        $this->foodMenu=$menu;
         return $this;
     }
 

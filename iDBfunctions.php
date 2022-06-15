@@ -14,6 +14,4 @@ interface iDBfunctions {
         public function from($table);
         public function table($tablename);
         public function insert(Array $values);
-    
-     
 }
