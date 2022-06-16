@@ -7,7 +7,6 @@ use Sessions\Session;
 Session::start();
 
 //Session::remove('orderList');
-    
 $customerName = $_SESSION['customerName'];
 
 $CustomerOrderList = new OrderList();
