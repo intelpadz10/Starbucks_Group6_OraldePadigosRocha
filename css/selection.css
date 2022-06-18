@@ -3,6 +3,10 @@
     padding: 0; 
 }
 
+body{
+  font-family: "Varela Round", sans-serif;
+}
+
 h3{
     margin-top: 10px;
     text-align: center;
@@ -18,11 +22,12 @@ h3{
   }
 
 
-h1{
+h1.customer{
     font-size:30px; 
     color: #dcebe5; 
     font-weight: 650; 
     align-items: center;
     padding-left: 1.5em;
-    font-family: "Varela Round", sans-serif;
+    
 }
+

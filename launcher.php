@@ -40,7 +40,7 @@ Session::remove('customerName');
             <form action =
             <?php echo $_SERVER['PHP_SELF']; ?> 
             method = "post" id="inputName">
-            <label style="font-size:9px">Enter your name</label><br><br>
+            <label style="font-size:12px">Enter your name</label><br><br>
                 
             <input type="text" name="customerName" id="name"><br><br>
             
@@ -53,7 +53,7 @@ Session::remove('customerName');
                         $_SESSION['customerName'] = $_REQUEST['customerName'];
                         header('Location: selection.php');
                     } else {
-                        echo "<p style='font-size:7px; color: red; font-weight: 450;'>Please input your name to proceed<p>";
+                        echo "<p style='font-size:7px; color: red; font-weight: 450; font-family: Varela Round, sans-serif;'>Please input your name to proceed<p>";
                     }
                 }
             } ?>
