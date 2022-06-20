@@ -6,9 +6,8 @@ require_once 'Session.php';
 use Sessions\Session;
 Session::start();
 
-Session::remove('orderList');
+//Session::remove('orderList');
 $customerName = $_SESSION['customerName'];
-
 $CustomerOrderList = new OrderList();
 
 if ($_REQUEST) {
@@ -29,25 +28,21 @@ if ($_REQUEST) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/selection.css">
-
+    <link rel="stylesheet" href="orderPage.css">
     <link rel="icon" href="assets/logo.png" />
 
     <title>Starbucks Philippines</title>
     <script src="axios.js" type="text/javascript"></script>
 </head>
 <body>
-
-    <div class = "siteheader">
-
-    <br>
-
-    <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
-    <h3>Starbucks Philippines</h3> <br>
-
-    <h1 class= "customer">Hi, <?php echo$customerName?>. What would you like to have today?</h1>
-
+    <div class = "navBar">
+        <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
+        <h5>Starbucks Philippines</h5> <br>
+        <li><a href="launcher.php">Home</a></li>
+        <li><a href="orderPage.php">Cart</a></li>
     </div>
+
+    <h1 class= "customer">Good Day, <?php echo $customerName; ?>!. What would you like to have today?</h1>
 
     <form action=<?php echo $_SERVER[
         'PHP_SELF'
@@ -162,18 +157,18 @@ if ($_REQUEST) {
         layout = ``;
         for(i in result.data){
             layout += `
-            <input type="radio" id="${result.data[i].prod_id}" name="menuItem" value="${result.data[i].prod_name}.${result.data[i].prod_price}.${result.data[i].ID_con}">
+            <input type="radio" id="${result.data[i].prodID}" name="menuItem" value="${result.data[i].prodName}.${result.data[i].prodBasePrice}.${result.data[i].conID}">
             `;
             
             layout +=
             "<label for=" + 
-            result.data[i].prod_id +
+            result.data[i].prodID +
             "> " +
-            result.data[i].prod_name +
+            result.data[i].prodName +
             " </label><br>";
         }
 
-        if(result.data[0].ID_con >= 4){
+        if(result.data[0].conID >= 4){
             layout += `
                 <br>
                 <div id="menuOptions">

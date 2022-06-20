@@ -1,22 +1,21 @@
 <?php
 
-require_once 'init.php';
-
-
+require_once 'DBfunctions.php';
 
 
 try {
-    $dbStarbucks = new PDO('mysql:host=localhost;dbname=starbucks','root','');
+    $dbStarbucks = new PDO('mysql:host=localhost;dbname=starbucks', 'root', '');
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
 
-$db = new DBfunctions($dbStarbucks);
+
+$db=new DBfunctions($dbStarbucks);
 
 
 if(isset($_GET['all'])){
     $result=$db->select()->from('consumable')->getAll();
-    $result2= json_encode($result);
+    $result2=json_encode($result);
     echo $result2;
 }
 
