@@ -6,7 +6,7 @@ use Sessions\Session;
 
 Session::start();
 
-//Session::remove('orderList');
+Session::remove('orderList');
 Session::remove('customerName');
 ?>
 

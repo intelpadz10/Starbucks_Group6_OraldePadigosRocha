@@ -16,7 +16,7 @@ class OrderList {
         }
 
 
-        if($type == '1' || $type == '2' || $type == '3'){
+        if($type == '1' || $type == '2' || $type == '3' || $type == '4'|| $type == '5'|| $type == '6'){
             $beverageItem = new Beverage($itemName, $postPrice, $type, $option);
             if(!Session::has('orderList')){
                 $_SESSION['orderList'][0] = $beverageItem;

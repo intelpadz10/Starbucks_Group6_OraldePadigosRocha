@@ -6,7 +6,7 @@ require_once 'Session.php';
 use Sessions\Session;
 Session::start();
 
-//Session::remove('orderList');
+Session::remove('orderList');
 $customerName = $_SESSION['customerName'];
 
 $CustomerOrderList = new OrderList();
@@ -162,18 +162,18 @@ if ($_REQUEST) {
         layout = ``;
         for(i in result.data){
             layout += `
-            <input type="radio" id="${result.data[i].prodID}" name="menuItem" value="${result.data[i].prodName}.${result.data[i].prodBasePrice}.${result.data[i].conID}">
+            <input type="radio" id="${result.data[i].prod_id}" name="menuItem" value="${result.data[i].prod_name}.${result.data[i].prod_price}.${result.data[i].ID_con}">
             `;
             
             layout +=
             "<label for=" + 
-            result.data[i].prodID +
+            result.data[i].prod_id +
             "> " +
-            result.data[i].prodName +
+            result.data[i].prod_name +
             " </label><br>";
         }
 
-        if(result.data[0].conID >= 4){
+        if(result.data[0].ID_con >= 4){
             layout += `
                 <br>
                 <div id="menuOptions">
