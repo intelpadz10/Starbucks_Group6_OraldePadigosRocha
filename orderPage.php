@@ -8,7 +8,6 @@ Session::start();
 
 //Session::remove('orderList');
 $customerName = $_SESSION['customerName'];
-
 $CustomerOrderList = new OrderList();
 
 if ($_REQUEST) {
@@ -29,37 +28,36 @@ if ($_REQUEST) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="selection.css">
-
+    <link rel="stylesheet" href="orderPage.css">
     <link rel="icon" href="assets/logo.png" />
 
     <title>Starbucks Philippines</title>
     <script src="axios.js" type="text/javascript"></script>
 </head>
 <body>
-
-    <div class = "siteheader">
-
-    <br>
-
-    <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
-    <h3>Starbucks Philippines</h3> <br>
-
-    <?php echo"<h1>Hi, $customerName. What would you like to have today?</h1>";?>
-
+    <div class = "navBar">
+        <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
+        <h5>Starbucks Philippines</h5> <br>
+        <li><a href="launcher.php">Home</a></li>
+        <li><a href="orderPage.php">Menu</a></li>
     </div>
+
+    <h1 class= "customer">Good Day, <?php echo $customerName; ?>!. What would you like to have today?</h1>
 
     <form action=<?php echo $_SERVER[
         'PHP_SELF'
     ]; ?> method="post" id="itemForm">
         <h2>Food & Beverages</h2>
-        <select name="selection" id="selection">
-            <option value="placeholder" selected>   Select a Food or Beverage   </option>
+        <select name="consumable" id="consumable">
+            <option value="placeholder" selected>   Select type of consumable   </option>
         </select>
+
         <hr>
+
         <h2>Menu</h2>
         <div id="menu">
         </div>
+        
         <button type="submit" name="addOrder" style="margin-top: 2em;">Add To Your Order</button>
         <?php if ($_REQUEST) {
             if (isset($_REQUEST['addOrder'])) {
@@ -111,15 +109,15 @@ if ($_REQUEST) {
         </div>
 </body>
 <script>
-    window.addEventListener("load",getConsumables());
-    document.getElementById("selection").addEventListener("change", getMenu);
+    window.addEventListener("load", getConsumables);
+    document.getElementById("consumable").addEventListener("change", getMenu);
 
 
     function getConsumables(){  
         axios
-            .get("DBQuery.php", {
+            .get("query.php", {
                 params: {
-                    all: true,
+                    consumable: true,
                 },
             })
             .then((response) => showAll(response))
@@ -132,9 +130,9 @@ if ($_REQUEST) {
         var result = response;
         for(i in result.data){
             var option = document.createElement("option");
-            option.value = result.data[i].conName;
-            option.text = result.data[i].conName;
-            var select = document.getElementById("selection");
+            option.value = result.data[i].ID_con;
+            option.text = result.data[i].con_name;
+            var select = document.getElementById("consumable");
             select.appendChild(option);
         }
     }
@@ -142,9 +140,9 @@ if ($_REQUEST) {
     function getMenu(){
         var menuID = document.getElementById("selection").value;
         axios
-            .get("DBQuery.php", {
+            .get("query.php", {
                 params: {
-                    category: menuID,
+                    products: prod_id,
                 },
             })
             .then((response) => showMenu(response))

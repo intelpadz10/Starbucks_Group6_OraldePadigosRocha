@@ -34,13 +34,13 @@ Session::remove('customerName');
 <body>
     <div class="background1">
         <div class="background2">
-            <img src="assets/logo.png" alt="Starbutts Logo" style="width: 60px; height: 60px;">
-            <h3>Welcome to <br> Starbucks Philippines <br></h3>
+            <img src="assets/logo.png" alt="Starbutts Logo" style="width: 120px; height: 120px; margin-top: 30px;">
+            <h1>Welcome to <br> Starbucks Philippines <br></h1>
             
             <form action =
             <?php echo $_SERVER['PHP_SELF']; ?> 
             method = "post" id="inputName">
-            <label style="font-size:9px">Enter your name</label><br><br>
+            <label>Enter your name</label><br><br>
                 
             <input type="text" name="customerName" id="name"><br><br>
             
@@ -51,13 +51,13 @@ Session::remove('customerName');
                         !empty($_REQUEST['customerName'])
                     ) {
                         $_SESSION['customerName'] = $_REQUEST['customerName'];
-                        header('Location: selection.php');
+                        header('Location: orderPage.php');
                     } else {
-                        echo "<p style='font-size:7px; color: red; font-weight: 450;'>Please input your name to proceed<p>";
+                        echo "<p style='font-size:10px; color: red; font-weight: 450;'>Please input your name to proceed<p>";
                     }
                 }
             } ?>
-            <button type="submit" form="inputName" name="submit" style="font-size:8px">Proceed</button>
+            <button type="submit" form="inputName" name="submit">Proceed</button>
             </form>
         </div>
     </div>
