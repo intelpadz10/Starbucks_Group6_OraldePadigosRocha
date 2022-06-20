@@ -1,24 +1,21 @@
 <?php
 
 require_once 'DBfunctions.php';
-require_once 'iDBfunctions.php';
-// require_once 'Session.php';
 
-// use Sessions\Session;
-// Session::start();
 
 try {
-    $dbStarbucks = new PDO('mysql:host=localhost;dbname=starbucks','root','');
+    $dbStarbucks = new PDO('mysql:host=localhost;dbname=starbucks', 'root', '');
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
 
-$db = new DBfunctions($dbStarbucks);
+
+$db=new DBfunctions($dbStarbucks);
 
 
-if(isset($_GET['consumable'])){
+if(isset($_GET['all'])){
     $result=$db->select()->from('consumable')->getAll();
-    $result2= json_encode($result);
+    $result2=json_encode($result);
     echo $result2;
 }
 

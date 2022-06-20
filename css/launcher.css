@@ -1,26 +1,25 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
 }
 
-.background1 {
-  position: relative;
+.background1{
   background-image: url("assets/bg1.jpg");
-  position: fixed;
+  position:fixed;
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -28,59 +27,58 @@ html {
   background-repeat: no-repeat;
 }
 
-.background2 {
+.background2{
   background-color: white;
-  width: 500px;
-  height: 600px;
-  margin: auto;
-  margin-top: 5%;
+  width: 300px;
+  height: 340px;
+  margin: 10px;
+  margin-left: 30%;
   padding: 30px;
+  display: block;
   text-align: center;
-  border-radius: 30px;
+  border-radius: 20px;
   opacity: 85%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 30px;
+h3{
   margin-top: 10px;
   text-align: center;
   color: rgb(40, 125, 40);
   font-family: "Varela Round", sans-serif;
 }
 
-form {
-  margin-top: 100px;
+form{
+  margin-top: 70px;
 }
 
-input {
-  border-radius: 30px;
+input{
+  border-radius: 10px;
   border-color: rgb(40, 125, 40);
   padding: 2px;
   text-align: center;
-  width: 200px;
-  height: 30px;
-  font-size: 15px;
 }
 
-label {
-  font-size: 20px;
+label{
+  font-size:x-small;
   font-family: "Varela Round", sans-serif;
 }
 
-button {
-  width: 80px;
-  height: 30px;
+button{
   border-radius: 5px;
-  border-style: none;
+  border-style:none;
   font-size: 10px;
   padding: 3px;
   background-color: rgb(40, 125, 40);
   color: whitesmoke;
-  font-size: 12px;
 }
 
-button:hover {
+button:hover{
   background-color: rgb(155, 198, 155);
   color: black;
-  cursor: pointer;
+  cursor:pointer;
 }
+
+
